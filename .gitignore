@@ -1,0 +1,12 @@
+# OS/editor junk
+.DS_Store
+Thumbs.db
+*.swp
+
+# Large/regenerable intermediate files (adjust once we know your pipeline's outputs)
+*.pdbqt.bak
+__pycache__/
+*.pyc
+
+# Environment
+.env
