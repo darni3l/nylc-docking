@@ -13,7 +13,7 @@ This repository contains a full docking pipeline for a dimeric polyamide ligand 
 **Structure used:** PDB [3AXG](https://www.rcsb.org/structure/3AXG) — NylC from *Agromyces* sp. strain KY5R.
 
 ## Repository contents
-
+```
 nylc-docking/
 ├── data/
 │ ├── raw/ # Original, unmodified inputs: 3AXG.pdb, FASTA, PA2_opt.pdb
@@ -25,7 +25,7 @@ nylc-docking/
 │ ├── figures/ # Pose visualizations, split into mono/ and tetra/ subfolders
 │ └── docked_poses/ # Output docked structures (PDBQT)
 └── docs/ # Extended methods notes
-
+```
 
 ## Methods (summary)
 
