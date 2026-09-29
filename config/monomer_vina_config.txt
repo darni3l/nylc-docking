@@ -1,0 +1,11 @@
+receptor = 3AXG_chainA.pdbqt
+ligand = PA2_opt.pdbqt
+center_x = 36.821
+center_y = 70.964
+center_z = 108.391
+size_x = 25
+size_y = 25
+size_z = 25
+exhaustiveness = 24
+num_modes = 9
+energy_range = 4
