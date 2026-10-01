@@ -75,7 +75,7 @@ prepare_ligand4.py -l PA2_opt.pdb -o PA2_opt.pdbqt -A hydrogens
 
 ## 4. Binding-site (grid box) definition
 
-The grid box was centered on the pocket surrounding the catalytic residue, **Thr-267 (chain A)**, identified from the paper describing 3AXG's autoprocessing mechanism.
+The grid box was centered on the pocket surrounding the catalytic residue, **Thr-267 (chain A)**, identified from the paper describing 3AXG's autoprocessing mechanism. (see README for paper's reference)
 
 ```python
 # PyMOL
@@ -142,9 +142,17 @@ vina_split.exe --input tetramer_out.pdbqt --ligand tetramer_out
 
 **Catalytic-geometry check.** Vina's scoring function has no explicit term for reaction-competent geometry — it is a general empirical estimate of binding-favorable contacts, not a model of the hydrolysis mechanism. Each candidate pose was therefore checked directly for proximity between Thr-267's nucleophilic oxygen (OG1) and the ligand's hydrolyzable carbonyl carbon (the electrophilic center attacked during amide-bond hydrolysis):
 
+
+**Note on ligand atom selection:** MGLTools' ligand PDBQT preparation assigns generic, non-unique atom names (e.g., multiple atoms all named `C`), so selecting the hydrolyzable carbonyl carbon by name alone is ambiguous and can inadvertently select the entire ligand. The carbonyl carbon was instead identified by clicking the atom in PyMOL and reading its unique atom index. After selecting the entire ligand on PyMol, run:
+
 ```python
-# PyMOL
-distance d1, chain A and resi 267 and name OG1, <ligand_pose_object>
+iterate sele, print(index, name, resn, resi)
+```
+and selecting by that index specifically:
+
+```python
+select carbonylC, <ligand_pose_object> and index 3
+distance catalytic_dist, chain A and resi 267 and name OG1, carbonylC
 ```
 
 A distance in the ~2.5–3.5 Å range was taken as indicative of a plausible nucleophilic-attack geometry, consistent with typical enzyme active-site distances.
