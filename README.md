@@ -1,4 +1,5 @@
 # NylC–Polyamide Docking Pipeline
+> **Independent project, built with AI-assisted learning and troubleshooting (see Acknowledgments).**
 
 Molecular docking pipeline studying how a nylon-oligomer hydrolase (NylC) binds a polyamide dimer substrate, comparing monomeric and tetrameric receptor context, as a precursor step to molecular dynamics simulation of the catalytic mechanism.
 
@@ -91,6 +92,10 @@ Full results tables are in [`results/tables/`](results/tables/); pose visualizat
 - **Scoring vs. reaction-competent geometry:** Vina's scoring function has no concept of catalytic geometry, confirmed directly by this project's own results (see above) — top-scoring poses were visually inspected for proximity/angle of the ligand's hydrolyzable amide bond relative to Thr-267 OG1, since score alone cannot identify reaction-competent poses.
 - **Search-box composition affects scoring:** the tetramer's improved score was traced to atoms incidental to the search box rather than genuine active-site contacts — a reminder that grid box design should be scrutinized whenever comparing receptor conditions with different overall geometry.
 - **Next:** MD simulation of the top reaction-plausible candidate(s) — monomer mode 1 and tetramer mode 3 — to assess pose stability and refine catalytic geometry beyond what rigid docking can show.
+
+## Acknowledgments
+
+This project was completed independently by the author, with AI assistance (Claude by Anthropic) used as a learning and troubleshooting aid throughout — explaining docking/force-field concepts as they arose, debugging pipeline scripts, and structuring this repository for presentation. All docking runs, parameter choices, PyMOL geometric analyses, and scientific interpretation are the author's own work.
 
 ## License & citation
 
